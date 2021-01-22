@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.clock{
+			width: 600px;
+			height: 600px;
+			background: url(img/forms/clock.jpg) no-repeat;
+			margin-left: 27%;
+			position: relative;
+		}
+		.clock div{
+			width: 30px;
+			height: 600px;
+			position: absolute;
+			top: 0%;
+			left: 47.5%;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="clock">
+		<div class="hour">
+			<img src="img/forms/hour.png" alt="">
+		</div>
+		<div class="minute">
+			<img src="img/forms/minute.png" alt="">
+		</div>
+		<div class="second">
+			<img src="img/forms/second.png" alt="">
+		</div>
+	</div>
+	<script>
+		//每一秒钟秒针转动6度  每一分钟分针转动6度  每一小时时针转动30度
+		var second = document.getElementsByClassName("second")[0];
+		var minute = document.getElementsByClassName("minute")[0];
+		var hour = document.getElementsByClassName("hour")[0];
+		function text(){
+			var date = new Date();
+			// var ms = date.getMilliseconds();
+			var s = date.getSeconds();
+			var m = date.getMinutes() + s/60;
+			var h = date.getHours() % 12 + m/60;
+			second.style.transform = "rotate("+s*6+"deg)";
+			minute.style.transform = "rotate("+m*6+"deg)";
+			hour.style.transform = "rotate("+h*30+"deg)";
+		}
+		setInterval(text,1000)
+	</script>
+</body>
+</html>

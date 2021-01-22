@@ -1,0 +1,68 @@
+.system {
+	width: 100%;
+	margin-top: 2rem;
+	background-image: url(../../phones/img/public/systemback_02.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	padding-bottom: 6rem;
+  }
+   .system .title {
+	color: #ffffff;
+	text-align: center;
+	padding-top: 1.5rem;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+  }
+   .system .systemflex {
+	width: 64%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+  }
+   .system .systemflex .picture:nth-child(first) {
+	margin-left: 0 !important;
+  }
+   .system .systemflex .picture {
+	width: 25%;
+	margin-left: 1.25rem;
+  }
+   .system .systemflex .picture .active {
+	background: blue !important;
+  }
+   .system .systemflex .picture div:hover {
+	background: blue !important;
+  }
+   .system .systemflex .picture div {
+	background: #ffffff;
+  }
+  @media (max-width: 414px) {
+   .system .systemflex .picture div {
+	  width: 6.62rem;
+	  height: 6.62rem;
+	  border-radius: 3.31rem;
+	}
+  }
+  @media (max-width: 414px) and (max-width: 360px) {
+   .system .systemflex .picture div {
+	  width: 5.8rem;
+	  height: 5.8rem;
+	  border-radius: 2.9rem;
+	}
+  }
+  @media (max-width: 414px) and (max-width: 360px) and (max-width: 320px) {
+   .system .systemflex .picture div {
+	  width: 5.1rem;
+	  height: 5.1rem;
+	  border-radius: 2.55rem;
+	}
+  }
+   .system .systemflex .picture div img {
+	width: 70%;
+	margin-top: 24%;
+	margin-left: 16%;
+  }
+   .system .systemflex .picture h5 {
+	color: #ffffff;
+	font-size: 1rem;
+	text-align: center;
+  }

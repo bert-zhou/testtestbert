@@ -1,0 +1,540 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.Clear {
+  clear: both;
+}
+a:hover,
+a:focus {
+  text-decoration: none !important;
+}
+body {
+  overflow: scroll;
+}
+header {
+  width: 100%;
+  margin-bottom: 5%;
+}
+header .headleft {
+  float: left;
+  width: 22.2%;
+  margin-top: 2%;
+  margin-left: 3%;
+}
+header .headleft img {
+  width: 100%;
+}
+header .headright {
+  float: right;
+  width: 7.6%;
+  margin-top: 2%;
+  margin-right: 3%;
+}
+header .headright img {
+  width: 100%;
+}
+.menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: blue;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.menu .fork {
+  width: 100%;
+}
+.menu .fork div {
+  float: right;
+  width: 6.2%;
+  margin-top: 2%;
+  margin-right: 3%;
+}
+.menu .fork div img {
+  width: 100%;
+}
+.menu ol {
+  margin-top: 10%;
+}
+.menu ol li {
+  text-align: center;
+  margin-bottom: 5%;
+  position: relative;
+}
+.menu ol li a {
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+.menu ol li .active:after {
+  content: "";
+  position: absolute;
+  width: 9.3%;
+  top: 48%;
+  left: 24%;
+  border-bottom: 2px solid #ffffff;
+}
+.menu ol li .active:before {
+  content: "";
+  width: 9.3%;
+  position: absolute;
+  top: 48%;
+  right: 24%;
+  border-bottom: 2px solid #ffffff;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.content .carousel .carousel-indicators {
+  margin-left: -63% !important;
+  bottom: -1% !important;
+}
+.content .carousel .carousel-indicators li {
+  border: 0 !important;
+  border-radius: 0 !important;
+  height: 0 !important;
+  width: 10.6% !important;
+  border-bottom: 2px solid white !important;
+  margin: 0 !important;
+}
+.content .carousel .carousel-indicators .active {
+  height: 0 !important;
+  width: 10.6% !important;
+  border-bottom: 2px solid blue !important;
+}
+.content .carousel .carousel-inner .item img {
+  width: 100%;
+}
+.content .aboutus .aboutusleft {
+  width: 40%;
+  margin-left: 5%;
+  float: left;
+}
+.content .aboutus .aboutusleft h4 {
+  font-size: 2.14rem !important;
+  text-align: center;
+  color: #4287d5;
+}
+.content .aboutus .aboutusleft p {
+  text-indent: 2rem;
+  text-align: justify;
+}
+.content .aboutus .aboutusleft .jiahao {
+  text-align: center;
+}
+.content .aboutus .aboutusleft .jiahao img {
+  width: 24.7%;
+}
+.content .aboutus .aboutusright {
+  width: 45%;
+  float: right;
+  margin-right: 5%;
+}
+.content .aboutus .aboutusright .aboutustop {
+  background: #ffffff;
+  margin-bottom: 3%;
+  position: relative;
+  top: -5rem;
+}
+.content .aboutus .aboutusright .aboutustop h4 {
+  font-size: 0.4rem;
+  text-align: center;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 10%;
+}
+.content .aboutus .aboutusright .aboutustop p {
+  text-indent: 2rem;
+  text-align: justify;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+.content .aboutus .aboutusright .aboutusbottom {
+  margin-top: -5rem;
+}
+.content .aboutus .aboutusright .aboutusbottom img {
+  width: 100%;
+}
+.content .system {
+  width: 100%;
+  margin-top: 2rem;
+  background-image: url(../img/public/systemback_02.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 6rem;
+}
+.content .system .title {
+  color: #ffffff;
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.content .system .systemflex {
+  width: 64%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.content .system .systemflex .picture:nth-child(first) {
+  margin-left: 0 !important;
+}
+.content .system .systemflex .picture {
+  width: 25%;
+  margin-left: 1.25rem;
+}
+.content .system .systemflex .picture .active {
+  background: blue !important;
+}
+.content .system .systemflex .picture div:hover {
+  background: blue !important;
+}
+.content .system .systemflex .picture div {
+  background: #ffffff;
+}
+@media (max-width: 414px) {
+  .content .system .systemflex .picture div {
+    width: 6.62rem;
+    height: 6.62rem;
+    border-radius: 3.31rem;
+  }
+}
+@media (max-width: 414px) and (max-width: 360px) {
+  .content .system .systemflex .picture div {
+    width: 5.8rem;
+    height: 5.8rem;
+    border-radius: 2.9rem;
+  }
+}
+@media (max-width: 414px) and (max-width: 360px) and (max-width: 320px) {
+  .content .system .systemflex .picture div {
+    width: 5.1rem;
+    height: 5.1rem;
+    border-radius: 2.55rem;
+  }
+}
+.content .system .systemflex .picture div img {
+  width: 70%;
+  margin-top: 24%;
+  margin-left: 16%;
+}
+.content .system .systemflex .picture h5 {
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+}
+.content .goodworks {
+  width: 100%;
+  position: relative;
+}
+.content .goodworks .goodworkstop {
+  width: 45%;
+  position: absolute;
+  top: -46%;
+  left: 51%;
+  background: #ffffff;
+}
+.content .goodworks .goodworkstop h3 {
+  font-size: 2rem;
+  color: #81aae0;
+  text-align: center;
+  margin-bottom: 20px !important;
+}
+.content .goodworks .worksnav {
+  margin-top: 5%;
+}
+.content .goodworks .worksnav .pull-left {
+  margin-left: 2%;
+  margin-bottom: 0px !important;
+}
+.content .goodworks .worksnav .pull-left li {
+  display: inline-block;
+  background: #f5f5f5;
+  padding: 0.5rem 1rem;
+}
+.content .goodworks .worksnav .pull-left li a {
+  color: black;
+  font-size: 0.1rem;
+}
+.content .goodworks .worksnav .pull-left .active {
+  background-color: black;
+}
+.content .goodworks .worksnav .pull-left .active a {
+  color: #ffffff;
+}
+.content .goodworks .worksnav .pull-right {
+  width: 13%;
+  margin-right: 3%;
+  margin-top: 1%;
+}
+.content .goodworks .worksnav .pull-right img {
+  width: 100%;
+}
+.content .goodworks .advertising {
+  margin-top: 3%;
+}
+.content .goodworks .advertising .pull-left {
+  background: #eeeeee;
+  width: 39%;
+  margin-left: 9%;
+}
+.content .goodworks .advertising .pull-left img {
+  width: 90%;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+.content .goodworks .advertising .pull-left span:nth-child(1) {
+  font-size: 1.02rem;
+}
+.content .goodworks .advertising .pull-left span:nth-child(2) {
+  font-size: 0.93rem;
+}
+.content .goodworks .advertising .pull-right {
+  background: #eeeeee;
+  width: 39%;
+  margin-right: 9%;
+}
+.content .goodworks .advertising .pull-right img {
+  width: 90%;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+.content .goodworks .advertising .pull-right span:nth-child(1) {
+  font-size: 1.02rem;
+}
+.content .goodworks .advertising .pull-right span:nth-child(2) {
+  font-size: 0.93rem;
+}
+.content .goodworks .advertising .active {
+  background: black !important;
+}
+.content .goodworks .advertising .active span {
+  color: #ffffff !important;
+}
+.content .goodworks .btnleft {
+  width: 4%;
+  position: absolute;
+  top: 55%;
+  left: 3%;
+}
+.content .goodworks .btnleft img {
+  width: 100%;
+}
+.content .goodworks .btnright {
+  width: 4%;
+  position: absolute;
+  top: 55%;
+  right: 3%;
+}
+.content .goodworks .btnright img {
+  width: 100%;
+}
+.content .share {
+  width: 100%;
+  height: 26rem;
+  background: url(../img/public/shareback_02.png) no-repeat;
+  background-size: 100% 100%;
+}
+.content .share h4 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2.3rem;
+  padding-top: 5%;
+  margin-bottom: 8%;
+}
+.content .share .carousel .carousel-inner .item {
+  text-align: center;
+}
+.content .share .carousel .carousel-inner .item div {
+  width: 33%;
+  display: inline-block;
+}
+.content .share .carousel .carousel-inner .item div img {
+  width: 100%;
+}
+.content .share .carousel .carousel-inner .item div:nth-child(1) {
+  margin-right: 2%;
+}
+.content .share .carousel-indicators {
+  margin-left: -30% !important;
+  bottom: -45% !important;
+}
+.content .dynamic {
+  width: 100%;
+  position: relative;
+}
+.content .dynamic .dynamicTop {
+  width: 45%;
+  background: #ffffff;
+  position: absolute;
+  top: -26%;
+  right: 3%;
+}
+.content .dynamic .dynamicTop h3 {
+  font-size: 2rem;
+  color: #81aae0;
+  text-align: center;
+  margin-bottom: 20px !important;
+}
+.content .dynamic .dynamicMenu {
+  margin-top: 5%;
+}
+.content .dynamic .dynamicMenu .pull-left {
+  margin-left: 2%;
+  margin-bottom: 0px !important;
+}
+.content .dynamic .dynamicMenu .pull-left li {
+  display: inline-block;
+  background: #f5f5f5;
+  padding: 0.5rem 1rem;
+}
+.content .dynamic .dynamicMenu .pull-left li a {
+  color: black;
+  font-size: 0.1rem;
+}
+.content .dynamic .dynamicMenu .pull-left .active {
+  background-color: black;
+}
+.content .dynamic .dynamicMenu .pull-left .active a {
+  color: #ffffff;
+}
+.content .dynamic .dynamicMenu .pull-right {
+  width: 13%;
+  margin-right: 3%;
+  margin-top: 1%;
+}
+.content .dynamic .dynamicMenu .pull-right img {
+  width: 100%;
+}
+.content .dynamic .newfoot {
+  width: 100%;
+  margin-top: 10px;
+}
+.content .dynamic .newfoot .newfootLeft {
+  float: left;
+  width: 42%;
+  margin-left: 2.6%;
+}
+.content .dynamic .newfoot .newfootLeft img {
+  width: 100%;
+  height: 100%;
+}
+.content .dynamic .newfoot .newfootRight {
+  float: right;
+  width: 42%;
+  margin-right: 2.6%;
+}
+.content .dynamic .newfoot .newfootRight img {
+  width: 100%;
+  height: 100%;
+}
+.content .dynamic .newfoot .Clear {
+  clear: both;
+}
+.content .dynamic .newend {
+  width: 100%;
+  height: 50px;
+  margin-top: 2.5rem;
+  background: #eeeeee;
+}
+.content .dynamic .newend .one {
+  display: inline-block;
+  position: relative;
+  top: 12px;
+}
+.content .dynamic .newend input {
+  width: 40%;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #959595;
+  background: #eeeeee;
+  position: relative;
+  top: 10px;
+  padding-left: 2px;
+}
+.content .dynamic .newend button {
+  background: #4287d5;
+  border-radius: 2px;
+  width: 13.3%;
+  height: 28px;
+  color: white;
+  outline: none;
+  border: 0 !important;
+  position: relative;
+  top: 13%;
+}
+footer {
+  background: #1b1b1b;
+}
+footer .information {
+  width: 90%;
+  margin-left: 10%;
+  padding-top: 30px;
+}
+footer .information .same {
+  margin-bottom: 4%;
+}
+footer .information .same div {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+footer .information .same div img {
+  width: 100%;
+  height: 100%;
+}
+footer .information .same span {
+  color: white;
+}
+footer .information .same span:nth-child(2) {
+  display: inline-block;
+  width: 17%;
+  text-align: right;
+}
+footer .code .codeleft {
+  float: left;
+  width: 32%;
+  margin-left: 15%;
+}
+footer .code .codeleft div {
+  display: flex;
+  justify-content: center;
+}
+footer .code .codeleft div img {
+  width: 80%;
+  height: 80%;
+}
+footer .code .codeleft p {
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+}
+footer .code .coderight {
+  float: right;
+  width: 32%;
+  margin-right: 15%;
+}
+footer .code .coderight div {
+  display: flex;
+  justify-content: center;
+}
+footer .code .coderight div img {
+  display: block;
+  width: 80%;
+  height: 80%;
+}
+footer .code .coderight p {
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+}
+footer p {
+  color: white;
+  text-align: center;
+}

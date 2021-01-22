@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .wrap {
+            width: 800px;
+            border: 1px solid black;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        
+        .wrap h3 {
+            margin: 10px 0 20px;
+        }
+        
+        .message {
+            padding: 10px;
+            border: 1px dashed #ccc;
+        }
+        
+        .info {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            width: calc(100% - 2px);
+            height: 120px;
+            border-radius: 5px;
+            border-color: #ccc;
+            vertical-align: middle;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h3>留言板</h3>
+        <div class="exhibit" id="exhibit">
+            <!-- <div class="message">
+                <div class="info">
+                    <span>张三</span>
+                    <span>2020-12-29 09:00:00</span>
+                </div>
+
+                <p>留言内容</p>
+                <div class="btn">
+                    <a href="#" class="removeBtn" id="del_0">删除</a>
+                </div>
+            </div> -->
+
+        </div>
+        <div class="messageText">
+            <textarea class="content" id="content"></textarea>
+            <div class="btn">
+                <input type="button" value="留言" id="addBtn">
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementById("addBtn");
+        var content = document.getElementById('content');
+        var exhibit = document.getElementById('exhibit');
+        let data = [];
+        // let data = [{
+        //     user: "张三0",
+        //     time: getNowTime(),
+        //     msg: "留言内容"
+        // }, {
+        //     user: "张三1",
+        //     time: getNowTime(),
+        //     msg: "留言内容"
+        // }, {
+        //     user: "张三2",
+        //     time: getNowTime(),
+        //     msg: "留言内容"
+        // }];
+
+        //点击留言添加数据
+        btn.addEventListener('click', function() {
+            var msg = content.value;
+            if (msg.trim() != "") {
+                data.push({
+                    user: "张三" + data.length,
+                    time: getNowTime(),
+                    msg: content.value
+                }); 
+                content.value = '';
+                render();
+            }
+        })
+        //渲染数据
+        function render() {
+            exhibit.innerHTML = data.map(function(item, index) {
+                return `<div class="message">
+                <div class="info">
+                    <span>${item.user}</span>
+                    <span>${item.time}</span>
+                </div>
+                <p>${item.msg}</p>
+                <div class="btn">
+                    <a href="#" class="removeBtn" id="del_${index}">删除</a>
+                </div>
+            </div>`;
+            }).join('');
+        }
+        //删除
+        exhibit.addEventListener("click", function(e) {
+                if (e.target.className == "removeBtn") {
+                    //获取id
+                    var id = this.id;
+                    id = id.substr(4);
+                    data.splice(id, 1);
+                    render();
+                }
+
+            })
+            //获取当前时间
+        function getNowTime() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minite = date.getMinutes();
+            var second = date.getSeconds();
+            month = month < 10 ? "0" + month : month;
+            day = day < 10 ? "0" + day : day;
+            hour = hour < 10 ? "0" + hour : hour;
+            minite = minite < 10 ? "0" + minite : minite;
+            second = second < 10 ? "0" + second : second;
+            return year + "-" + month + "-" + day + " " + hour + ":" + minite + ":" + second;
+        }
+    </script>
+</body>
+</html>

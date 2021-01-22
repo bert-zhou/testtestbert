@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box {
+			height: 100px;
+			text-align: center;
+			font-size: 50px;
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box"></div>
+	<script>
+		var timing;
+		function time1() {
+			var nowtime = new Date();
+			console.log(nowtime);
+			var endtime = new Date("2021/01/04 10:50:00");
+			// console.log(endtime);
+			var timechuo = endtime.getTime() - nowtime.getTime();
+			timechuo = timechuo / 1000;
+			console.log(timechuo)
+			var day = Math.floor(timechuo / 60 / 60 / 24);
+			var hour = Math.floor(timechuo / 60 / 60 % 24);
+			var m = Math.floor(timechuo / 60 % 60);
+			var s = Math.floor(timechuo % 60);
+			hour < 10 ? hour =  "0" + hour : hour =  hour;
+			m < 10 ? m =  "0" + m : m = m;
+			s < 10 ? s = "0" + s : s = s;
+			var box = document.getElementsByClassName("box")[0];
+			if(timechuo > 0){
+				box.innerHTML = "距离元旦还剩" + day + "天" + hour + "小时" + m + "分钟" + s + "秒!!";
+			}
+			else{
+				box.innerHTML = "元旦快乐!!";
+				clearInterval(timing); 
+			}	
+		}
+		time1();
+		timing = setInterval(time1,1000);
+	</script>
+</body>
+
+</html>

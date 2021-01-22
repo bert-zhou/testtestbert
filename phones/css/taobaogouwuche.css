@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+.top {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.top .topleft input {
+  margin-left: 50px;
+  margin-right: 20px;
+}
+.top .topleft label {
+  margin-right: 50px;
+}
+.top .topright ul {
+  display: flex;
+}
+.top .topright ul li {
+  margin-right: 50px;
+}
+.content {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+}
+.content .store {
+  display: flex;
+  align-items: center;
+}
+.content .store input {
+  margin-left: 50px;
+}
+.content .store div {
+  width: 16px;
+  height: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.content .store div img {
+  width: 100%;
+  height: 100%;
+}
+.content .product {
+  display: flex;
+  margin-top: 5px;
+  padding-top: 20px;
+  border: 1px solid green;
+  margin-bottom: 20px;
+}
+.content .product .choose {
+  width: 45px;
+  height: 81px;
+  margin-left: 28px;
+}
+.content .product .choose input {
+  margin-left: 50%;
+}
+.content .product .information {
+  width: 80px;
+  height: 80px;
+}
+.content .product .information img {
+  width: 100%;
+  height: 100%;
+}
+.content .product .words {
+  width: 185px;
+  margin-left: 10px;
+}
+.content .product .words p {
+  height: 35px;
+  font-size: 12px;
+}
+.content .product .words div {
+  margin-top: 23px;
+  height: 23px;
+}
+.content .product .words div img {
+  height: 100%;
+}
+.content .product .size {
+  width: 170px;
+  height: 117px;
+}
+.content .product .size p {
+  width: 150px;
+  font-size: 12px;
+  color: #9c9c9c;
+  margin: auto;
+}
+.content .product .productriht {
+  display: flex;
+  margin-left: 14%;
+}
+.content .product .productriht .score {
+  width: 74px;
+  line-height: 117px;
+}
+.content .product .productriht .score span {
+  color: red;
+  font-size: 20px;
+  margin-left: 30px;
+}
+.content .product .productriht .price {
+  width: 74px;
+  line-height: 117px;
+}
+.content .product .productriht .price span {
+  color: red;
+  font-size: 20px;
+  margin-left: 30px;
+}
+.content .product .productriht .amount {
+  display: flex;
+  align-items: center;
+}
+.content .product .productriht .amount div {
+  width: 19px;
+  height: 25px;
+  border: 1px solid black;
+  text-align: center;
+}
+.content .product .productriht .amount input {
+  display: inline-block;
+  width: 41px;
+  height: 23px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.content .product .productriht .total {
+  width: 74px;
+  line-height: 117px;
+}
+.content .product .productriht .total span {
+  color: red;
+  font-size: 20px;
+  margin-left: 13px;
+}
+.content .product .productriht .del {
+  width: 74px;
+  line-height: 117px;
+}
+.content .product .productriht .del a {
+  color: blue;
+  font-size: 20px;
+}
+.footer {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footerleft {
+  background: green;
+  color: white;
+  line-height: 42px;
+}
+.footer .footerright div span {
+  color: blue;
+}
+.footer .footerright div .sumscore {
+  color: red;
+}
+.footer .footerright div .sumprice {
+  color: red;
+}
+.buy {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+  margin-bottom: 50px;
+}
+.buy button {
+  background: red !important;
+  outline: none;
+  border: none;
+  margin-right: 30px;
+}

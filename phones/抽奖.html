@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 606px;
+			height: 600px;
+			border: 1px solid black;
+			display: flex;
+			flex-wrap: wrap;
+			margin: auto;
+		}
+		.box div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.start{
+			background: chartreuse;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="block">小米笔记本</div>
+		<div class="block">iphoneX</div>
+		<div class="block">PS4游戏机</div>
+		<div class="block">谢谢参与</div>
+		<div class="block start">立即抽奖</div>
+		<div class="block">索尼电视机</div>
+		<div class="block">西门子冰箱</div>
+		<div class="block">抽油烟机</div>
+		<div class="block">小爱同学</div>
+	</div>
+	<script>
+		var block = document.getElementsByClassName("block");
+		// console.log(block)
+		var arr = [0,1,2,5,8,7,6,3];
+		var count = 0;
+		var j = 0;
+		var timer;
+		var suiji = Math.floor((Math.random()) * 10 +30);
+		console.log(suiji);
+		var around =function(){
+			for(var i =0; i<arr.length;i++){
+				block[arr[i]].style.background = "white";
+			}
+			block[arr[j]].style.background = "red";
+			j++;
+			if(j == arr.length){
+				j = 0;
+			}
+			count++;
+			console.log(count);
+			if(count < 5){
+				clearInterval(timer);
+				timer = setInterval(around,100);
+			}
+			if(count > 5 && count < suiji - 10){
+				clearInterval(timer);
+				timer = setInterval(around,300);
+			}
+			if( count > suiji - 10){
+				clearInterval(timer);
+				timer = setInterval(around,100);
+			}
+			if(count == suiji){
+				clearInterval(timer);
+			}
+		}	
+		var start = function(){
+			block[4].removeEventListener("click",start);
+			timer =	setInterval(around,300);
+		}
+		block[4].addEventListener("click",start);
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		div{
+			width: 600px;
+			height: 400px;
+			position: relative;
+			margin: auto;
+			overflow: hidden;
+			border:1px solid blue;
+		}
+		img{
+			width: 600px;
+			height: 400px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="../../images/one.jpg" alt="">
+		<img src="../../images/two.jpg" alt="">
+		<img src="../../images/three.jpg" alt="">
+		<img src="../../images/fore.jpg" alt="">
+	</div>
+	<script>
+		var imgs = document.getElementsByTagName("img");
+		var timer;
+		var now;
+		//先初始化
+		window.onload = function(){
+			for(var i = 0; i<imgs.length;i++){
+				imgs[i].style.left = i * 600 + "px";
+				// console.log(imgs[i].style.left);
+			}
+		}
+		//轮播动作方法
+		var action = function(){
+			for(var i = 0;i<imgs.length;i++){
+				//获取图片的左边距	
+				now = parseInt(imgs[i].style.left);
+				if(now == -600){
+					imgs[i].style.left = (imgs.length -1) *600 + "px";
+				}else{
+					imgs[i].style.left = (now - 1) + "px";
+				}
+					console.log(imgs[i].style.left);
+			}
+		}
+		var autopic = function(){
+			timer = setInterval(action,10);
+		}
+		autopic();
+	</script>
+</body>
+</html>

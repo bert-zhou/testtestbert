@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		div{
+			margin-bottom: 20px;
+		}
+		form{
+			width: 500px;
+			margin: auto;
+			margin-top: 30px;
+		}
+		.eyes{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			position: relative;
+			top: 5px;
+		}
+		.eyes img{
+			width: 100%;
+			height: 100%;
+		}
+		label{
+			display: inline-block;
+			width: 70px;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="POST">
+		<div>
+			<label for="">用户名</label>
+			<input type="text" placeholder="请输入用户名" id="username">
+			<span class="prompt" style="color:blue;">请输入6-10位字符且以字母开头</span>
+		</div>
+		<div>
+			<label for="">密码</label>
+			<input type="password" placeholder="请输入密码" id="password">
+			<div class="eyes">
+				<img src="img/forms/none.png" alt="">
+			</div>
+			<span>请输入8-16位字符</span>
+		</div>
+		<input type="radio">
+	</form>
+	<script>
+		// 获取用户名
+		var username = document.querySelector("#username");
+		var prompt = document.getElementsByClassName("prompt");
+		username.onblur = function(){
+			// console.log(prompt[0].innerHTML)
+			var str = username.value;
+			var reg = /^[a-zA-Z]\w{6,10}/;
+			var result = reg.exec(str);	
+			if(result != null){
+				prompt[0].innerHTML = "格式正确！！";
+				prompt[0].style.color = "green";
+			}else{
+				prompt[0].innerHTML = "格式错误！！";
+				prompt[0].style.color = "red";
+			}
+		}
+		//获取用户密码
+		var psd = document.getElementById("password");
+		// console.log(psd);
+		var eyes = document.getElementsByClassName("eyes")[0];
+		var img = document.querySelector(".eyes img");
+		var flag = 0;
+		eyes.onclick = function(){
+			if(flag == 0){
+				psd.type = "text";
+				flag = 1;
+				img.src = "img/forms/show.png";
+			}else{
+				psd.type = "password";
+				flag = 0;
+				img.src = "img/forms/none.png";
+			}
+		}
+		//多选和单选
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .container {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .box {
+            width: 600px;
+            height: 400px;
+            position: absolute;
+        }
+        
+        .box .active {
+            display: block;
+        }
+        
+        .images {
+            width: 600px;
+            height: 400px;
+            display: none;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            border: 1px solid;
+            position: absolute;
+            top: 42%;
+            color: white;
+            line-height: 30px;
+            text-align: center;
+        }
+        
+        .prev {
+            left: 1%;
+        }
+        
+        .next {
+            right: 1%;
+        }
+        
+        ol {
+            width: 200px;
+            height: 30px;
+            position: absolute;
+            bottom: 7%;
+            left: 35%;
+            display: inline-block;
+        }
+        
+        ol li {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 20px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        #dots .active {
+            background: blue;
+            list-style: georgian;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="images active">
+                <img src="img/1.jpeg" alt="">
+            </div>
+            <div class="images">
+                <img src="img/2.jpeg" alt="">
+            </div>
+            <div class="images">
+                <img src="img/3.jpeg" alt="">
+            </div>
+            <div class="images">
+                <img src="img/4.jpeg" alt="">
+            </div>
+            <div class="images">
+                <img src="img/5.jpeg" alt="">
+            </div>
+        </div>
+        <a href="javascript:;" class="prev"> &lt;</a>
+        <a href="javascript:;" class="next">&gt;</a>
+        <ol id="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+
+    <script>
+        // 1、自动滚动
+        //数量自增的时候，轮播的图片的class 当前选中的图片加上active类名，圆点类名也要加上active类名，加之前，需要循环将已有的active样式去掉
+        // 2、左右箭头点击切换
+        // 3、点击小圆点，自动切换到小圆点对应的图片
+        let timer, n = 0;
+        //事件源
+        var imgs = document.getElementsByClassName("images");
+        var prev = document.getElementsByClassName('prev')[0];
+        var next = document.getElementsByClassName('next')[0];
+        var lis = document.getElementsByTagName('li');
+        var container = document.getElementsByClassName("container")[0];
+        //添加样式
+        function doImage() {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = "";
+                imgs[i].className = "images";
+            }
+            lis[n].className = "active";
+            imgs[n].className = "images active";
+        }
+        //移入
+        container.onmouseover = function() {
+            clearInterval(timer);
+        }
+
+        //移出
+        container.onmouseout = function() {
+            timer = setInterval(move, 1000);
+        }
+
+        //自动滚动播放
+        var move = function() {
+            n++;
+            if (n == lis.length) {
+                n = 0;
+            }
+            doImage();
+        }
+        let autoPlay = function() {
+            timer = setInterval(move, 1000);
+        }
+        autoPlay();
+        //左箭头切换
+        prev.onclick = function() {
+            clearInterval(timer);
+            n--;
+            if (n == -1) {
+                n = imgs.length - 1;
+            }
+            doImage();
+        }
+        //右箭头切换
+        next.onclick = function() {
+            clearInterval(timer);
+            n++;
+            if (n == imgs.length) {
+                n = 0;
+            }
+            doImage();
+        }
+        //点击点切换
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            lis[i].onclick = function() {
+                clearInterval(timer);
+                n = this.index;
+                doImage();
+            }
+        }
+    </script>
+</body>
+</html>

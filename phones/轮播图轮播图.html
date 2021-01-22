@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.container{
+			width: 600px;
+			height: 400px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.box img:first-child{
+			display: block;
+		}
+		.box img{
+			width: 600px;
+			height: 400px;
+			display: none;
+		}
+		/* .box>.active{
+			display: block;
+		} */
+		ol{
+			list-style: none;
+			padding: 0%;
+			position: absolute;
+			left: 38%;
+			top: 88%;
+		}
+		li{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border-radius: 10px;
+			background: white;
+			margin-right: 10px;
+		}
+		ol>.active{
+			background: blue;
+		}
+		a{
+			font-size: 50px;
+			color: red;
+		}
+		.leftbtn{
+			position: absolute;
+			top: 50%;
+			left: 3%;
+		}
+		.rightbtn{
+			position: absolute;
+			top: 50%;
+			right: 3%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<img class="active" src="../../images/one.jpg" alt="">
+			<img src="../../images/two.jpg" alt="">
+			<img src="../../images/three.jpg" alt="">
+			<img src="../../images/fore.jpg" alt="">
+		</div>
+		<ol>
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<a class="leftbtn">&lt;</a>
+		<a class="rightbtn">&gt;</a>
+	</div>
+	<script>
+		var imgs = document.getElementsByTagName("img");
+		var lis = document.getElementsByTagName("li");
+		var btns = document.getElementsByTagName("a");
+		var container = document.getElementsByClassName("container")[0];
+		var timer;
+		var n = 0;
+		//自动轮播
+		var autoplay = function(){
+			timer = setInterval(action,1000)
+		}
+		autoplay();
+		//开始动作
+		function action(){
+			n++;
+			if(n==imgs.length){
+				n = 0;
+			}
+			for(var i= 0;i<imgs.length;i++){
+				imgs[i].style.display = "none";
+				// imgs[i].className = "";
+				lis[i].className = "";
+				// console.log(imgs[i].className);
+			}
+			imgs[n].style.display = "block";
+			// imgs[n].className = "active";
+			lis[n].className = "active";
+		}
+		//点击li实现切换
+		for(var i = 0;i<lis.length;i++){
+			lis[i].index = i;
+			lis[i].onclick = function(){
+				for(var j = 0;j< lis.length;j++){
+					lis[j].className = "";
+					imgs[j].style.display = "none";
+					// console.log(123);
+				}
+				n = this.index;
+				lis[this.index].className = "active";
+				imgs[this.index].style.display = "block";
+			}
+		}
+		//鼠标移入停止轮播
+		container.onmouseover = function(){
+			clearInterval(timer);
+		}
+		container.onmouseout = function(){
+			timer = setInterval(action,1000);
+		}
+		//实现左右箭头切换轮播图
+		//左箭头
+		btns[0].onclick = function(){
+			console.log(123);
+			n--;
+			if(n== -1){
+				n = imgs.length -1;
+			}
+			for(var i= 0;i<imgs.length;i++){
+				imgs[i].style.display = "none";
+				// imgs[i].className = "";
+				lis[i].className = "";
+				// console.log(imgs[i].className);
+			}
+			imgs[n].style.display = "block";
+			// imgs[n].className = "active";
+			lis[n].className = "active";
+		}
+		//右箭头
+		btns[1].onclick = function(){
+			console.log(123);
+			action();	
+		}
+	</script>
+</body>
+</html>

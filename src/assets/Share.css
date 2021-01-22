@@ -1,0 +1,30 @@
+div .share {
+  width: 100%;
+  height: 26rem;
+  background: url(../../phones/img/public/shareback_02.png) no-repeat;
+  background-size: 100% 100%;
+}
+div .share h4 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2.3rem;
+  padding-top: 5%;
+  margin-bottom: 8%;
+}
+div .share .carousel .carousel-inner .item {
+  text-align: center;
+}
+div .share .carousel .carousel-inner .item div {
+  width: 33%;
+  display: inline-block;
+}
+div .share .carousel .carousel-inner .item div img {
+  width: 100%;
+}
+div .share .carousel .carousel-inner .item div:nth-child(1) {
+  margin-right: 2%;
+}
+div .share .carousel-indicators {
+  margin-left: -30% !important;
+  bottom: -45% !important;
+}

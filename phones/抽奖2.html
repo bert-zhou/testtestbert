@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.top{
+			width: 300px;
+			height: 40px;
+			background: yellow;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: auto;
+		}
+		.box1{
+			width: 600px;
+			height: 100px;
+			border: 2px solid greenyellow;
+			margin: 0 auto;
+			margin-top: 50px;
+			text-align: center;
+			line-height: 100px;
+			font-size: 30px;
+			color: red;
+		}
+		.btn{
+			width: 200px;
+			margin: 0 auto;
+			text-align: center;
+			margin-top: 30px;
+		}
+		.round{
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			border: 1px solid red;
+			display: inline-block;
+			margin-top: 30px;
+			margin-left: 40px;
+			text-align: center;
+		}
+		.round h5{
+			margin-top: 20px; 
+			text-align: center;
+		}
+		 .one{
+			margin-left: 359px;
+		}
+		h3{
+			text-align: center;
+		} 
+	</style>
+</head>
+<body>
+	<div class="top">中奖姓名</div>
+	<div class="box1"></div>
+	<div class="btn">
+		<button class="start">开始</button>
+		<button class="end" disabled>停止</button>
+	</div>
+		<div class="one round">
+			<h5>一等奖</h5>
+			<h3 class="luky-1">one</h3>
+		</div>
+		<div class="two round">
+			<h5>二等奖</h5>
+			<h3 class="luky-2">two</h3>
+		</div>
+		<div class="three round">
+			<h5>三等奖</h5>
+			<h3 class="luky-3">three</h3>
+		</div>
+	<script>
+		var start = document.getElementsByClassName("start")[0];
+		var end = document.getElementsByClassName("end")[0];
+		var luky_1 = document.getElementsByClassName("luky-1")[0];
+		var luky_2 = document.getElementsByClassName("luky-2")[0];
+		var luky_3 = document.getElementsByClassName("luky-3")[0];
+		var result = document.getElementsByClassName("box1")[0];
+		var time,randomnum;
+		var count = 1;
+		//定义数组
+		var username = ["李白","张三","曾小贤","白居易"];
+		//循环数组的用户
+		function bianli(){
+			for(var i = 0;i<username.length;i++){
+				result.innerHTML = username[rand()];
+			}
+		}
+		//随机数的函数
+		function rand(){
+			randomnum = Math.floor(Math.random() * username.length);
+			return randomnum;
+		}
+		//点击开始抽奖
+		start.onclick = function(){
+			time = setInterval(bianli,200);
+			this.disabled = true;
+			end.disabled = false;
+		}
+		//点击停止按钮
+		end.onclick = function(){
+			remove();//删除
+			clearInterval(time);
+			this.disabled = true;
+			start.disabled = false;
+			published();
+			if(count>=3){
+				this.disabled = true;
+				start.disabled = true;
+				console.log("-----");
+			}else{
+				count++;
+			}
+			console.log(count);
+		}
+		//公布几等奖的名单
+		function published(){
+			switch(count){
+				case 1:
+					luky_3.innerHTML = result.innerHTML;
+					break;
+				case 2:
+					luky_2.innerHTML = result.innerHTML;
+					break;
+				case 3:
+					luky_1.innerHTML = result.innerHTML;
+					break;
+			}
+		}
+		//去除重复的人名
+		function remove(){
+			username.splice(randomnum,1);
+			// username.length = username.length;
+		}
+	</script>
+</body>
+</html>

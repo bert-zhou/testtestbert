@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		div{
+			width: 600px;
+			height: 400px;
+			margin: auto;
+			position: relative;
+			overflow: hidden;
+		}
+		img{
+			width: 600px;
+			height: 400px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="../../images/one.jpg" alt="">
+		<img src="../../images/two.jpg" alt="">
+		<img src="../../images/three.jpg" alt="">
+		<img src="../../images/fore.jpg" alt="">
+	</div>
+	<script>
+		var imgs = document.getElementsByTagName("img");
+		var nowleft,timer;
+		window.onload = function(){
+			for(var i=0;i<imgs.length;i++){
+				imgs[i].style.left = i * 600 + "px";
+			}
+		}
+		var auto = function(){
+			timer = setInterval(action,5);
+		}
+		auto();
+		//自动轮播
+		function action(){
+			for(var i = 0;i<imgs.length;i++){
+				nowleft = parseInt(imgs[i].style.left);
+				if(nowleft == -600){
+					imgs[i].style.left = (imgs.length - 1) * 600 + "px"
+				}else{
+					imgs[i].style.left = nowleft - 1 + "px";
+				}	
+			}
+		}
+	</script>
+</body>
+</html>

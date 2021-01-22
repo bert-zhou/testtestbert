@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.maxbox{
+			margin: auto;
+			width: 600px;
+			height: 400px;
+			position: relative;
+			overflow: hidden;
+		}
+		.box{
+			/* width: 2400px; */
+			height: 400px;
+			position: absolute;
+		}
+		.box div{
+			float: left;
+			width: 600px;
+			height: 400px;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+		ol{
+			list-style: none;
+			position: absolute;
+			top: 88%;
+			left: 42%;
+			padding: 0%;
+		}
+		li{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border-radius: 10px;
+			background: white;
+		}
+		.active{
+			background: blue;
+		}
+		.left{
+			color: red;
+			font-size: 80px;
+			position: absolute;
+			top: 39%;
+			left: 0%;
+		}
+		.right{
+			color: red;
+			font-size: 80px;
+			position: absolute;
+			top: 39%;
+			right: 0%;
+		}
+	</style>
+</head>
+<body>
+	<div class="maxbox">
+		<div class="box">
+			<div class="imgs">
+				<img src="img/1.jpeg" alt="">
+			</div>
+			<div class="imgs">
+				<img src="img/2.jpeg" alt="">
+			</div>
+			<div class="imgs">
+				<img src="img/3.jpeg" alt="">
+			</div>
+			<div class="imgs">
+				<img src="img/5.jpeg" alt="">
+			</div>
+		</div>
+		<ol>
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<div class="left">&lt;</div>
+		<div class="right">&gt;</div>
+	</div>
+	<script>
+		var box = document.getElementsByClassName("box")[0];
+		var maxbox = document.getElementsByClassName("maxbox")[0];
+		var imgs = document.getElementsByClassName("imgs");
+		var lis = document.getElementsByTagName("li");
+		var left = document.getElementsByClassName("left")[0];
+		var right = document.getElementsByClassName("right")[0];
+		var timer;
+		var n = 0;
+		window.onload = function(){
+			box.style.width = imgs.length * 600 + "px"
+		}
+		function action(){
+			n++;
+			if(n == imgs.length){
+				n = 0;
+			}
+			box.style.left = (n * -600) + "px";
+			for(var i = 0; i<lis.length; i++){
+				lis[i].className = "";
+			}
+			lis[n].className = "active";
+		}
+		//自动轮播
+		function autoplay(){
+			timer = setInterval(action,1000)
+		}
+		autoplay();
+		//移入移出
+		maxbox.onmouseover = function(){
+			clearInterval(timer);
+		}
+		maxbox.onmouseout = function(){
+			timer = setInterval(action,1000);
+		}
+		//点击li标签实现轮播图切换
+		for(var i = 0;i<lis.length;i++){
+			lis[i].index  = i;
+			lis[i].onclick = function(){
+				for(var i = 0; i<lis.length; i++){
+					lis[i].className = "";
+				}
+				lis[this.index].className = "active";
+				box.style.left = (this.index * -600) +"px";
+				n = this.index;
+			}
+		}
+		//点击左右箭头实现切换
+		left.onclick = function(){
+			n--;
+			if(n == -1){
+				n = lis.length - 1;
+			}
+			box.style.left = (n * -600) + "px";
+			for(var i = 0; i<lis.length; i++){
+				lis[i].className = "";
+			}
+			lis[n].className = "active";
+		}
+		right.onclick = function(){
+			action();
+		}
+	</script>
+</body>
+</html>
